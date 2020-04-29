@@ -1,0 +1,16 @@
+.App {
+  color: hsl(200, 15%, 8%);
+}
+
+header {
+  height: 65px;
+  box-shadow: 0 0 5px #ccc;
+  background-color: white;
+}
+
+header h1 {
+  padding-top: 24px;
+  padding-left: 65px;
+  font-size: 19px;
+  font-weight: 800;
+}
