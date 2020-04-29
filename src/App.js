@@ -15,11 +15,13 @@ function App() {
             </div>
             <input type="text" placeholder="Search for a country..."/>
           </div>
-          <select id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+          <select className="world-region">
+            <option value="" disabled selected hidden>Filter by Region</option>
+            <option value="africa">Africa</option>
+            <option value="america">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
           </select>
         </div>
       </main>

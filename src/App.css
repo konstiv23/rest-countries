@@ -20,8 +20,13 @@ main {
   width: 1024px;
 }
 
-main .search {
+.search-and-filter {
   margin-top: 38px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main .search {
   width: 384px;
   display: flex;
   height: 46px;
@@ -52,5 +57,27 @@ main .search input {
 }
 
 main .search input:focus {
+  outline: none;
+}
+
+.world-region {
+  width: 162px;
+  padding-left: 19px;
+  font-size: 11px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  border: 0;
+  border-radius: 5px;
+  height: 46px;
+  background-color: white;
+  background: url(down-icon.png) no-repeat right white;
+  background-size: 8px 8px;
+  -webkit-appearance: none;
+  background-position-x: 137px;
+  box-shadow: 0 0 10px #eceded;
+}
+
+.world-region:focus {
   outline: none;
 }
