@@ -27,8 +27,9 @@ main {
   width: 1024px;
 }
 
-.country-cards {
+.countries-grid {
   margin-top: 38px;
+  margin-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 58px;

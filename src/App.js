@@ -1,6 +1,6 @@
 import React from "react";
-import CountryCard from "./CountryCard.js";
 import SearchAndFilter from "./SearchAndFilter.js";
+import CountriesGrid from "./CountriesGrid.js";
 import "./App.css";
 
 function App() {
@@ -11,16 +11,7 @@ function App() {
       </header>
       <main>
         <SearchAndFilter/>
-        <div className="country-cards">
-          <CountryCard/>
-          <CountryCard/>
-          <CountryCard/>
-          <CountryCard/>
-          <CountryCard/>
-          <CountryCard/>
-          <CountryCard/>
-          <CountryCard/>
-        </div>
+        <CountriesGrid/>
       </main>
     </div>
   );

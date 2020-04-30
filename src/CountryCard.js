@@ -1,15 +1,15 @@
 import React from "react";
 import "./CountryCard.css";
 
-function CountryCard() {
+function CountryCard({flag, name, population, region, capital}) {
   return (
     <div className="CountryCard">
-      <img src="https://restcountries.eu/data/col.svg" alt="flag"/>
+      <img src={flag} alt="flag"/>
       <div className="card-text">
-        <h2>Country name</h2>
-        <div><strong>Population: </strong>100,000</div>
-        <div><strong>Region: </strong>Americas</div>
-        <div><strong>Capital: </strong>Bogota</div>
+        <h2>{name}</h2>
+        <div><strong>Population: </strong>{population}</div>
+        <div><strong>Region: </strong>{region}</div>
+        <div><strong>Capital: </strong>{capital}</div>
       </div>
     </div>
   );
