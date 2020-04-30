@@ -1,3 +1,79 @@
-.CountryDetails {
-  margin-top: 85px;
+.details {
+  margin-top: 88px;
+  font-size: 13.5px;
+}
+
+.details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-color: white;
+}
+
+.details a {
+  box-shadow: 0 0 5px #aaa;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  height: 30px;
+  width: 85px;
+  text-decoration: none;
+  padding-left: 25px;
+}
+
+.details a i {
+  padding-right: 12px;
+}
+
+.details a:visited {
+  color: inherit;
+}
+
+.details section {
+  margin-top: 65px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details img {
+  height: 321px;
+  width: 447px;
+  object-fit: contain;
+}
+
+.details-text {
+  width: 481px;
+  margin-top: 36px;
+}
+
+.details-text h1 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.details-text .columns {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.column2 {
+  width: 202px;
+}
+
+.column1 div, .column2 div {
+  margin-bottom: 13px;
+}
+
+.details strong {
+  font-weight: 600;
+}
+
+.border-countries {
+  margin-top: 52px;
 }
