@@ -35,3 +35,7 @@ main {
   grid-column-gap: 58px;
   grid-row-gap: 60px;
 }
+
+.error404 {
+  margin-top: 50px;
+}
