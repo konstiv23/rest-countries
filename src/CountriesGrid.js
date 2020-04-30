@@ -17,13 +17,14 @@ function CountriesGrid() {
       {
         const countries = JSON.parse(Http.responseText);
         const newCards = [];
-        for(const country of countries) {
+        for(let i = 0; i < countries.length; i++) {
           newCards.push(<CountryCard
-            flag={country.flag}
-            name={country.name}
-            population={country.population}
-            region={country.region}
-            capital={country.capital}
+            key={i}
+            flag={countries[i].flag}
+            name={countries[i].name}
+            population={countries[i].population}
+            region={countries[i].region}
+            capital={countries[i].capital}
           />);
         }
         setCards(newCards);
