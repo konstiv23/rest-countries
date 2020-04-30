@@ -10,8 +10,8 @@ function SearchAndFilter() {
         </div>
         <input type="text" placeholder="Search for a country..."/>
       </div>
-      <select className="world-region">
-        <option value="" disabled selected hidden>Filter by Region</option>
+      <select className="world-region" defaultValue="filter by region">
+        <option value="filter by region" hidden>Filter by Region</option>
         <option value="africa">Africa</option>
         <option value="america">America</option>
         <option value="asia">Asia</option>
