@@ -1,4 +1,5 @@
 import React from "react";
+import CountryCard from "./CountryCard.js";
 import "./App.css";
 
 function App() {
@@ -23,6 +24,16 @@ function App() {
             <option value="europe">Europe</option>
             <option value="oceania">Oceania</option>
           </select>
+        </div>
+        <div className="country-cards">
+          <CountryCard/>
+          <CountryCard/>
+          <CountryCard/>
+          <CountryCard/>
+          <CountryCard/>
+          <CountryCard/>
+          <CountryCard/>
+          <CountryCard/>
         </div>
       </main>
     </div>

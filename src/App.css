@@ -88,3 +88,11 @@ main .search input:focus {
 .world-region:focus {
   outline: none;
 }
+
+.country-cards {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 58px;
+  grid-row-gap: 60px;
+}
