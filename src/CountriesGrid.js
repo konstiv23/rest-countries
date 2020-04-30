@@ -16,6 +16,7 @@ function CountriesGrid() {
       if (Http.readyState === 4 && Http.status === 200)
       {
         const countries = JSON.parse(Http.responseText);
+        countries.sort(sortCompare);
         const newCards = [];
         for(let i = 0; i < countries.length; i++) {
           newCards.push(<CountryCard
@@ -37,6 +38,33 @@ function CountriesGrid() {
       {cards}
     </div>
   );
+}
+
+const showFirst = {};
+showFirst["Russian Federation"] = 1;
+showFirst["United States of America"] = 2;
+showFirst["Brazil"] = 3;
+showFirst["Iceland"] = 4;
+
+function sortCompare(a, b) {
+  if(showFirst[a.name] && showFirst[b.name]) {
+    if(showFirst[a.name] < showFirst[b.name]) {
+      return -1;
+    }
+    if (showFirst[a.name] > showFirst[b.name]) {
+      return 1;
+    }
+    else return 0;
+  }
+  if(showFirst[a.name] && !showFirst[b.name]) {
+    return -1;
+  }
+  if(!showFirst[a.name] && showFirst[b.name]) {
+    return 1;
+  }
+  else {
+    return a.name.localeCompare(b.name);
+  }
 }
 
 export default CountriesGrid;
