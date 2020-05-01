@@ -23,6 +23,19 @@
   font-size: 14px;
 }
 
+.card-text h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-text h2 a:visited {
+  color: inherit;
+}
+
+.card-text h2 a:hover {
+  color: #00D;
+}
+
 .card-text > *:nth-child(2) {
   margin-top: 9px;
 }
