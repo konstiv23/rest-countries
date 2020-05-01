@@ -17,13 +17,15 @@ function CountryDetails() {
       if (Http.readyState === 4 && Http.status === 200)
       {
         const countryObj = JSON.parse(Http.responseText)[0];
-        console.log(countryObj);
         setCountry(countryObj);
       }
     }
   }, []);
 
-  let populWithCommas = numberWithCommas(country.population || "");
+  const populWithCommas = numberWithCommas(country.population || "");
+  const extractNames = arr => (arr || []).map(a => a.name).join(", ");
+  const languages = extractNames(country.languages);
+  const currencies = extractNames(country.currencies);
 
   return (
     <div className="details">
@@ -43,9 +45,9 @@ function CountryDetails() {
               <div><strong>Capital: </strong>{country.capital}</div>
             </div>
             <div className="column2">
-              <div><strong>Top Level Domain: </strong></div>
-              <div><strong>Currencies: </strong></div>
-              <div><strong>Languages: </strong></div>
+              <div><strong>Top Level Domain: </strong>{country.topLevelDomain}</div>
+              <div><strong>Currencies: </strong>{currencies}</div>
+              <div><strong>Languages: </strong>{languages}</div>
             </div>
           </div>
           <div className="border-countries">
