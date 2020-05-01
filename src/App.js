@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchAndFilter from "./SearchAndFilter.js";
 import CountriesGrid from "./CountriesGrid.js";
 import CountryDetails from "./CountryDetails.js";
@@ -10,6 +10,9 @@ import {
 import "./App.css";
 
 function App() {
+
+  const [filter, setFilter] = useState(null);
+
   return (
     <div className="App">
       <header>
@@ -22,8 +25,8 @@ function App() {
               <CountryDetails/>
             </Route>
             <Route exact path="/rest-countries/">
-              <SearchAndFilter/>
-              <CountriesGrid/>
+              <SearchAndFilter setFilterParent={setFilter}/>
+              <CountriesGrid filter={filter}/>
             </Route>
             <Route path="*">
               <h1 class="error404">Error 404: page not found</h1>

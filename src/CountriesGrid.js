@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CountryCard from "./CountryCard.js";
 
-function CountriesGrid() {
+function CountriesGrid({ filter }) {
 
   const [cards, setCards] = useState([]);
 
@@ -15,8 +15,11 @@ function CountriesGrid() {
       // wihtout this if cards would be set twice
       if (Http.readyState === 4 && Http.status === 200)
       {
-        const countries = JSON.parse(Http.responseText);
+        let countries = JSON.parse(Http.responseText);
         countries.sort(sortCompare);
+        if(filter) {
+          countries = countries.filter(c => c.region === filter);
+        }
         const newCards = [];
         for(let i = 0; i < countries.length; i++) {
           newCards.push(<CountryCard
@@ -31,7 +34,7 @@ function CountriesGrid() {
         setCards(newCards);
       }
     }
-  }, []);
+  }, [filter]);
 
   return (
     <div className="countries-grid">
