@@ -1,4 +1,5 @@
 import React from "react";
+import numberWithCommas from "./numberWithCommas.js";
 import "./CountryCard.css";
 
 function CountryCard({flag, name, population, region, capital}) {
@@ -13,10 +14,6 @@ function CountryCard({flag, name, population, region, capital}) {
       </div>
     </div>
   );
-}
-
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 export default CountryCard;

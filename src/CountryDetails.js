@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import numberWithCommas from "./numberWithCommas.js";
 import "./CountryDetails.css";
 
 function CountryDetails() {
@@ -22,6 +23,8 @@ function CountryDetails() {
     }
   }, []);
 
+  let populWithCommas = numberWithCommas(country.population || "");
+
   return (
     <div className="details">
       <Link to="/rest-countries/">
@@ -34,7 +37,7 @@ function CountryDetails() {
           <div className="columns">
             <div className="column1">
               <div><strong>Native Name: </strong>{country.nativeName}</div>
-              <div><strong>Population: </strong>{country.population}</div>
+              <div><strong>Population: </strong>{populWithCommas}</div>
               <div><strong>Region: </strong>{country.region}</div>
               <div><strong>Sub Region: </strong>{country.subregion}</div>
               <div><strong>Capital: </strong>{country.capital}</div>
