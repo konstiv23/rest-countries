@@ -26,20 +26,12 @@ function App() {
               <CountriesGrid/>
             </Route>
             <Route path="*">
-              <Error404 />
+              <h1 class="error404">Error 404: page not found</h1>
             </Route>
           </Switch>
         </Router>
       </main>
     </div>
-  );
-}
-
-function Error404() {
-  return (
-    <h1 class="error404">
-      Error 404: resource not found
-    </h1>
   );
 }
 
