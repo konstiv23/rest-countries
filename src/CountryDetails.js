@@ -4,24 +4,40 @@ import "./CountryDetails.css";
 
 function CountryDetails() {
 
-  const [countryName, setCountryName] = useState(countryNameFromUrl());
+  const [country, setCountry] = useState({});
+
+  useEffect(() => { //on mount
+    const Http = new XMLHttpRequest();
+    const countryName = countryNameFromUrl();
+    const url='https://restcountries.eu/rest/v2/name/' + encodeURI(countryName);
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange = (e) => {
+      if (Http.readyState === 4 && Http.status === 200)
+      {
+        const countryObj = JSON.parse(Http.responseText)[0];
+        console.log(countryObj);
+        setCountry(countryObj);
+      }
+    }
+  }, []);
 
   return (
     <div className="details">
       <Link to="/rest-countries/">
-        <i class="fas fa-long-arrow-alt-left"></i>Back
+        <i className="fas fa-long-arrow-alt-left"></i>Back
       </Link>
       <section>
-        <img src="https://restcountries.eu/data/col.svg" alt="flag"/>
+        <img src={country.flag} alt="flag"/>
         <div className="details-text">
-          <h1>{countryName}</h1>
+          <h1>{country.name}</h1>
           <div className="columns">
             <div className="column1">
-              <div><strong>Native Name: </strong></div>
-              <div><strong>Population: </strong></div>
-              <div><strong>Region: </strong></div>
-              <div><strong>Sub Region: </strong></div>
-              <div><strong>Capital: </strong></div>
+              <div><strong>Native Name: </strong>{country.nativeName}</div>
+              <div><strong>Population: </strong>{country.population}</div>
+              <div><strong>Region: </strong>{country.region}</div>
+              <div><strong>Sub Region: </strong>{country.subregion}</div>
+              <div><strong>Capital: </strong>{country.capital}</div>
             </div>
             <div className="column2">
               <div><strong>Top Level Domain: </strong></div>
@@ -45,7 +61,8 @@ function countryNameFromUrl() {
   }
   currentUrl = currentUrl.replace(/\/$/, '');
   const lastSlashIndex = currentUrl.lastIndexOf('/');
-  return currentUrl.substring(lastSlashIndex + 1);
+  const encodedName = currentUrl.substring(lastSlashIndex + 1);
+  return decodeURI(encodedName);
 }
 
 export default CountryDetails;
