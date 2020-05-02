@@ -135,6 +135,7 @@
 
 @media screen and (max-width: 1023px) {
   .actual-borders {
+    width: auto;
     margin: 20px 0;
   }
 }
