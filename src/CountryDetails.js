@@ -55,8 +55,10 @@ function CountryDetails({ location }) {
             </div>
           </div>
           <div className="border-countries">
-            <strong>Border Countries: </strong>
-            {borders}
+            <strong>Border&nbsp;Countries: </strong>
+            <div className="actual-borders">
+              {borders}
+            </div>
           </div>
         </div>
       </section>
