@@ -19,8 +19,8 @@ The designs were created to the following widths:
 
 ### Body Copy
 
-- Homepage Items: 14px
-- Detail Page: 16px
+- Homepage Items: 14px - isn't true judging from screenshots in ./design/
+- Detail Page: 16px - isn't true judging from screenshots in ./design/
 
 ### Fonts
 
