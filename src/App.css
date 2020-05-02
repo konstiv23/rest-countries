@@ -14,6 +14,12 @@ header::before {
   background-color: white;
 }
 
+@media screen and (max-width: 1023px) {
+  header::before {
+    height: 80px;
+  }
+}
+
 header h1 {
   width: 1024px;
   margin: 0 auto;
@@ -22,9 +28,27 @@ header h1 {
   font-weight: 800;
 }
 
+@media screen and (max-width: 1023px) {
+  header h1 {
+    width: 100%;
+    padding-top: 34px;
+    padding-left: 14px;
+    font-size: 14.25px;
+    box-sizing: border-box;
+  }
+}
+
 main {
   margin: 0 auto;
   width: 1024px;
+}
+
+@media screen and (max-width: 1023px) {
+  main {
+     width: 100%;
+     margin: 0 0;
+     box-sizing: border-box;
+  };
 }
 
 .countries-grid {
@@ -34,6 +58,15 @@ main {
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 58px;
   grid-row-gap: 60px;
+}
+
+@media screen and (max-width: 1023px) {
+  .countries-grid {
+    margin-top: 33px;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-gap: 42px;
+  }
 }
 
 .error404 {

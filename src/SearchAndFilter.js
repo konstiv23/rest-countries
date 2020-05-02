@@ -29,7 +29,7 @@ function SearchAndFilter({ setSearch, setFilter }) {
           onChange={onSearchChange}
         />
       </div>
-      <select className="world-region" onChange={onFilterChange}>
+      <select className="filter" onChange={onFilterChange}>
         <option value="filter by region" hidden>Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">America</option>
