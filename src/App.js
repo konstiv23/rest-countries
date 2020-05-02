@@ -12,6 +12,7 @@ import "./App.css";
 function App() {
 
   const [filter, setFilter] = useState(null);
+  const [search, setSearch] = useState("");
 
   return (
     <div className="App">
@@ -25,8 +26,9 @@ function App() {
               <CountryDetails/>
             </Route>
             <Route exact path="/rest-countries/">
-              <SearchAndFilter setFilterParent={setFilter}/>
-              <CountriesGrid filter={filter}/>
+              <SearchAndFilter setSearch={setSearch} setFilter={setFilter}
+              />
+              <CountriesGrid search={search} filter={filter}/>
             </Route>
             <Route path="*">
               <h1 class="error404">Error 404: page not found</h1>

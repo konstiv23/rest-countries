@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import CountryCard from "./CountryCard.js";
 
-function CountriesGrid({ filter }) {
+function CountriesGrid({ search, filter }) {
 
   const [cards, setCards] = useState([]);
 
-  useEffect(() => { //on mount
-    // request all countries
+  useEffect(() => { //on mount and update to search and filter
+
     const Http = new XMLHttpRequest();
-    const url='https://restcountries.eu/rest/v2/all';
+    let url = "";
+    if(search === "") {  // request all countries
+      url='https://restcountries.eu/rest/v2/all';
+    }
+    else {  //request search
+      url='https://restcountries.eu/rest/v2/name/' + encodeURI(search);
+    }
     Http.open("GET", url);
     Http.send();
     Http.onreadystatechange = (e) => {
@@ -20,27 +26,34 @@ function CountriesGrid({ filter }) {
         if(filter) {
           countries = countries.filter(c => c.region === filter);
         }
-        const newCards = [];
-        for(let i = 0; i < countries.length; i++) {
-          newCards.push(<CountryCard
-            key={i}
-            flag={countries[i].flag}
-            name={countries[i].name}
-            population={countries[i].population}
-            region={countries[i].region}
-            capital={countries[i].capital}
-          />);
-        }
-        setCards(newCards);
+        setCards(cardsFromCountries(countries));
+      }
+      else if(Http.status !== 200) {
+        setCards([]);
       }
     }
-  }, [filter]);
+  }, [search, filter]);
 
   return (
     <div className="countries-grid">
       {cards}
     </div>
   );
+}
+
+function cardsFromCountries(countries) {
+  const cards = [];
+  for(let i = 0; i < countries.length; i++) {
+    cards.push(<CountryCard
+      key={countries[i].name}
+      flag={countries[i].flag}
+      name={countries[i].name}
+      population={countries[i].population}
+      region={countries[i].region}
+      capital={countries[i].capital}
+    />);
+  }
+  return cards;
 }
 
 const showFirst = {};
