@@ -1,23 +1,13 @@
 .details {
   margin-top: 88px;
   font-size: 13px;
+  background-color: white;
 }
 
 @media screen and (max-width: 1023px) {
   .details {
     margin: 73px 25px 0 25px;
   }
-}
-
-.details::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  background-color: white;
 }
 
 .details a {

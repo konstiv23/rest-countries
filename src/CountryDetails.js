@@ -31,6 +31,8 @@ function CountryDetails({ location }) {
     b => <NameFromCode code={b} key={b}/>
   );
 
+  document.body.style = 'background: white;';
+
   return (
     <div className="details">
       <Link to="/rest-countries/">

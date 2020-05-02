@@ -34,6 +34,8 @@ function CountriesGrid({ search, filter }) {
     }
   }, [search, filter]);
 
+  document.body.style = 'background: hsl(0, 0%, 98%);';
+  
   return (
     <div className="countries-grid">
       {cards}
