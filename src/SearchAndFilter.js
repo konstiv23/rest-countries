@@ -20,7 +20,6 @@ function SearchAndFilter({ setFilterParent }) {
         <input type="text" placeholder="Search for a country..."/>
       </div>
       <select className="world-region"
-          defaultValue="filter by region"
           value={filter}
           onChange={handleFilterChange}
       >
