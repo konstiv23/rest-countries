@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import NameFromCode from "./NameFromCode.js";
 import numberWithCommas from "./numberWithCommas.js";
 import "./CountryDetails.css";
 
-function CountryDetails() {
+function CountryDetails({ location }) {
 
   const [country, setCountry] = useState({});
 
-  useEffect(() => { //on mount
+  useEffect(() => { //on mount and location change
     const Http = new XMLHttpRequest();
     const countryName = countryNameFromUrl();
     const url='https://restcountries.eu/rest/v2/name/' + encodeURI(countryName);
@@ -20,12 +21,15 @@ function CountryDetails() {
         setCountry(countryObj);
       }
     }
-  }, []);
+  }, [location]);
 
   const populWithCommas = numberWithCommas(country.population || "");
   const extractNames = arr => (arr || []).map(a => a.name).join(", ");
   const languages = extractNames(country.languages);
   const currencies = extractNames(country.currencies);
+  const borders = (country.borders || []).map(
+    b => <NameFromCode code={b} key={b}/>
+  );
 
   return (
     <div className="details">
@@ -52,6 +56,7 @@ function CountryDetails() {
           </div>
           <div className="border-countries">
             <strong>Border Countries: </strong>
+            {borders}
           </div>
         </div>
       </section>
@@ -70,4 +75,4 @@ function countryNameFromUrl() {
   return decodeURI(encodedName);
 }
 
-export default CountryDetails;
+export default withRouter(CountryDetails);

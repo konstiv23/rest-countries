@@ -30,7 +30,7 @@ function App() {
               <CountriesGrid search={search} filter={filter}/>
             </Route>
             <Route path="*">
-              <h1 class="error404">Error 404: page not found</h1>
+              <h1 className="error404">Error 404: page not found</h1>
             </Route>
           </Switch>
         </Router>
