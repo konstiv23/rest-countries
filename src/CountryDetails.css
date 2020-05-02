@@ -47,7 +47,11 @@
 .details img {
   height: 321px;
   width: 447px;
-  object-fit: contain;
+    /* Without object-fit: contain flags are stretched */
+    /* but so they are in app design */
+  /*object-fit: contain;*/
+    /* I also added border so that flags with big white bands (e.g. Russian) */
+    /* look better */
   border:1px solid #aaa;
 }
 
