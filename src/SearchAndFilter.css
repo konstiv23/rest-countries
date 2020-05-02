@@ -60,3 +60,7 @@ main .search input:focus {
 .world-region:focus {
   outline: none;
 }
+
+option {
+  font-weight: 600;
+}

@@ -26,8 +26,7 @@ function App() {
               <CountryDetails/>
             </Route>
             <Route exact path="/rest-countries/">
-              <SearchAndFilter setSearch={setSearch} setFilter={setFilter}
-              />
+              <SearchAndFilter setSearch={setSearch} setFilter={setFilter}/>
               <CountriesGrid search={search} filter={filter}/>
             </Route>
             <Route path="*">
